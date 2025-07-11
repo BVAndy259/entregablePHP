@@ -1,5 +1,5 @@
 <?php
-    class Proyectos {
+    class Proyecto {
         private $idproyecto;
         private $nombre;
         private $descripcion;
