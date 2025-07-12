@@ -13,8 +13,7 @@
 
         public function setIdcliente($idcliente)
         {
-                $this->idcliente = $idcliente;
-                return $this;
+                return $this->idcliente = $idcliente;
         }
 
         public function getNomUsuario()
@@ -24,8 +23,7 @@
 
         public function setNomUsuario($nomusuario)
         {
-                $this->nomusuario = $nomusuario;
-                return $this;
+                return $this->nomusuario = $nomusuario;
         }
 
         public function getEmail()
@@ -35,8 +33,7 @@
 
         public function setEmail($email)
         {
-                $this->email = $email;
-                return $this;
+                return $this->email = $email;
         }
 
         public function getPassword()
@@ -46,8 +43,7 @@
 
         public function setPassword($password)
         {
-                $this->password = $password;
-                return $this;
+                return $this->password = $password;
         }
 
         public function getRol()
@@ -57,8 +53,7 @@
 
         public function setRol($rol)
         {
-                $this->rol = $rol;
-                return $this;
+                return $this->rol = $rol;
         }
     }
 ?>
