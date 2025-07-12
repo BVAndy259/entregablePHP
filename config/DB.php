@@ -15,9 +15,4 @@
             }
         }
     }
-    
-    public function getConnection() {
-        return $this->pdo;
-    }
-}
 ?>
