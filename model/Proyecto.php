@@ -13,8 +13,7 @@
 
         public function setIdproyecto($idproyecto)
         {
-                $this->idproyecto = $idproyecto;
-                return $this;
+                return $this->idproyecto = $idproyecto;
         }
 
         public function getNombre()
@@ -24,8 +23,7 @@
 
         public function setNombre($nombre)
         {
-                $this->nombre = $nombre;
-                return $this;
+                return $this->nombre = $nombre;
         }
 
         public function getDescripcion()
@@ -35,8 +33,7 @@
 
         public function setDescripcion($descripcion)
         {
-                $this->descripcion = $descripcion;
-                return $this;
+                return $this->descripcion = $descripcion;
         }
 
         public function getEstado()
@@ -46,8 +43,7 @@
 
         public function setEstado($estado)
         {
-                $this->estado = $estado;
-                return $this;
+                return $this->estado = $estado;
         }
 
         public function getIdcliente()
@@ -57,8 +53,7 @@
 
         public function setIdcliente($idcliente)
         {
-                $this->idcliente = $idcliente;
-                return $this;
+                return $this->idcliente = $idcliente;
         }
     }
 ?>

@@ -1,26 +1,18 @@
 <?php
-class DB {
-    private $host = 'localhost';
-    private $dbname = 'tecnosoluciones';
-    private $username = 'root';
-    private $password = '';
-    private $pdo;
-    
-    public function __construct() {
-        try {
-            $this->pdo = new PDO(
-                "mysql:host={$this->host};dbname={$this->dbname};charset=utf8",
-                $this->username,
-                $this->password
-            );
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Error de conexión: " . $e->getMessage());
+    class DB {
+        public static function conectar() {
+            $url = "mysql: host=localhost; dbname=tecnosoluciones";
+            $user = "root";
+            $password = "";
+
+            try {
+                $cn = new PDO($url, $user, $password);
+                $cn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $cn;
+            } catch (PDOException $e) {
+                echo "Error de conexión a la base de datos: " . $e->getMessage();
+                return null;
+            }
         }
     }
-    
-    public function getConnection() {
-        return $this->pdo;
-    }
-}
 ?>
