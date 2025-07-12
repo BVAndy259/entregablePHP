@@ -40,7 +40,7 @@
                 $model = new UsuarioModel();
                 $usuario = new Usuario();
                 $usuario->setNomUsuario($_POST['txtNom']);
-                $usuario->setEmail($_POST['txtEma']);
+                $usuario->setEmail($_POST['txtDes']);
                 $usuario->setPassword($_POST['txtPass']);
                 $usuario->setRol($_POST['txtRol']);
                 $model->guardar($usuario);

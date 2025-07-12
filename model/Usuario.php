@@ -1,19 +1,19 @@
 <?php
     class Usuario {
-        private $idusuario;
+        private $idcliente;
         private $nomusuario;
         private $email;
         private $password;
         private $rol;
 
-        public function getIdusuario()
+        public function getIdcliente()
         {
-                return $this->idusuario;
+                return $this->idcliente;
         }
 
-        public function setIdusuario($idusuario)
+        public function setIdcliente($idcliente)
         {
-                $this->idusuario = $idusuario;
+                $this->idcliente = $idcliente;
                 return $this;
         }
 

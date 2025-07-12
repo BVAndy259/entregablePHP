@@ -1,17 +1,13 @@
 <?php
     require_once __DIR__ . '/../config/DB.php';
-    require_once __DIR__ . '/../model/ClienteModel.php';
+    require_once __DIR__ . '/Proyecto.php';
 
     class ProyectoModel {
         private $db;
 
-        public function __construct() {
-            $this->db = DB::conectar();
-        }
-
         public function cargar() 
         {
-            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos";
+            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM clientes";
             $ps = $this->db->prepare($sql);
             $ps->execute();
             $filas = $ps->fetchall();
@@ -35,13 +31,13 @@
             $ps->bindParam(':nom', $proyecto->getNombre());
             $ps->bindParam(':des', $proyecto->getDescripcion());
             $ps->bindParam(':est', $proyecto->getEstado());
-            $ps->bindParam(':idcli', $proyecto->getIdcliente());
+            $ps->bindParam(':idfam', $proyecto->getIdcliente());
             $ps->execute();
         }
 
         public function modificar(Proyecto $proyecto)
         {
-            $sql = "UPDATE proyectos SET nomProyecto = :nom, descripcion = :des, estado = :est, idCliente = :idcli WHERE idProyecto = :id";
+            $sql = "UPDATE proyecto SET nomProyecto = :nom, descripcion = :des, estado = :est, idCliente = :idcli WHERE idProyecto = :id";
             $ps = $this->db->prepare($sql);
             $ps->bindParam(':nom', $proyecto->getNombre());
             $ps->bindParam(':des', $proyecto->getDescripcion());

@@ -5,10 +5,6 @@
     class ClienteModel {
         private $db;
 
-        public function __construct() {
-            $this->db = DB::conectar();
-        }
-
         public function cargar() 
         {
             $sql = "SELECT idCliente, nomCliente, ruc, email, telefono, representante FROM clientes";
@@ -43,7 +39,7 @@
 
         public function modificar(Cliente $cliente)
         {
-            $sql = "UPDATE clientes SET nomCliente = :nom, ruc = :ruc, email = :ema, telefono = :tel, representante = :rep WHERE idCliente = :id";
+            $sql = "UPDATE clientes SET nomCliente = :nom, ruc = :ruc, email = :ema, telefono = :tel, ruc = :ruc, representante = :rep WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
             $ps->bindParam(':nom', $cliente->getNombre());
             $ps->bindParam(':ruc', $cliente->getRuc());
