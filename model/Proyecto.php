@@ -5,6 +5,7 @@
         private $descripcion;
         private $estado;
         private $idcliente;
+        private $nombreCliente;
 
         public function getIdproyecto()
         {
@@ -54,6 +55,16 @@
         public function setIdcliente($idcliente)
         {
                 return $this->idcliente = $idcliente;
+        }
+
+        public function getNombreCliente()
+        {
+                return $this->nombreCliente;
+        }
+
+        public function setNombreCliente($nombreCliente)
+        {
+                return $this->nombreCliente = $nombreCliente;
         }
     }
 ?>
