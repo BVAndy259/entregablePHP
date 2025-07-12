@@ -14,8 +14,7 @@
 
         public function setIdcliente($idcliente)
         {
-                $this->idcliente = $idcliente;
-                return $this;
+                return $this->idcliente = $idcliente;
         }
 
         public function getNombre()
@@ -25,8 +24,7 @@
 
         public function setNombre($nombre)
         {
-                $this->nombre = $nombre;
-                return $this;
+                return $this->nombre = $nombre;
         }
 
         public function getRuc()
@@ -36,8 +34,7 @@
 
         public function setRuc($ruc)
         {
-                $this->ruc = $ruc;
-                return $this;
+                return $this->ruc = $ruc;
         }
 
         public function getEmail()
@@ -47,8 +44,7 @@
 
         public function setEmail($email)
         {
-                $this->email = $email;
-                return $this;
+                return $this->email = $email;
         }
 
         public function getTelefono()
@@ -58,8 +54,7 @@
 
         public function setTelefono($telefono)
         {
-                $this->telefono = $telefono;
-                return $this;
+                return $this->telefono = $telefono;
         }
 
         public function getRepresentante()
@@ -69,8 +64,7 @@
 
         public function setRepresentante($representante)
         {
-                $this->representante = $representante;
-                return $this;
+                return $this->representante = $representante;
         }
     }
 ?>

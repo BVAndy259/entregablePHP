@@ -2,31 +2,29 @@
 require_once __DIR__ . '/../config/DB.php';
 require_once __DIR__ . '/Usuario.php';
 
-class UsuarioModel {
-    private $db;
-    
-    public function __construct() {
-        $this->db = new DB();
-    }
-    
-    // Método para autenticar usuario
-    public function autenticarUsuario($email, $password) {
-        try {
-            $pdo = $this->db->getConnection();
-            $sql = "SELECT * FROM usuarios WHERE email = ? AND password = ?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$email, $password]);
-            
-            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            if ($resultado) {
-                return new Usuario(
-                    $resultado['idUsuario'],
-                    $resultado['nomUsuario'],
-                    $resultado['email'],
-                    $resultado['password'],
-                    $resultado['rol']
-                );
+    class UsuarioModel {
+        private $db;
+
+        public function __construct()
+        {
+            $this -> db = DB::conectar();
+        }
+
+        public function validar(Usuario $usuario) {
+            $sql = "SELECT idUsuario, nomUsuario, password, rol FROM usuarios WHERE email = :email";
+            $ps = $this->db->prepare($sql);
+            $ps->bindParam(":email", $usuario->getEmail());
+            $ps->execute();
+            $result = $ps->fetch(PDO::FETCH_ASSOC);
+
+            if ($result) {
+                if ($usuario->getPassword() === $result['password']) {
+                    return [
+                        'idUsuario' => $result['idUsuario'],
+                        'nomUsuario' => $result['nomUsuario'],
+                        'rol' => $result['rol']
+                    ];
+                }
             }
             return null;
         } catch (PDOException $e) {
