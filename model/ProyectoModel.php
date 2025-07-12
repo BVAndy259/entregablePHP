@@ -41,7 +41,7 @@
 
         public function modificar(Proyecto $proyecto)
         {
-            $sql = "UPDATE proyecto SET nomProyecto = :nom, descripcion = :des, estado = :est, idCliente = :idcli WHERE idProyecto = :id";
+            $sql = "UPDATE proyectos SET nomProyecto = :nom, descripcion = :des, estado = :est, idCliente = :idcli WHERE idProyecto = :id";
             $ps = $this->db->prepare($sql);
             $ps->bindParam(':nom', $proyecto->getNombre());
             $ps->bindParam(':des', $proyecto->getDescripcion());

@@ -10,7 +10,6 @@ switch ($modulo) {
         $controller = new UsuarioController();
         switch ($accion) {
             case 'login':
-                // Mostrar formulario login
                 require_once 'view/login.php';
                 break;
             case 'validar':
@@ -31,6 +30,22 @@ switch ($modulo) {
                 break;
             case 'guardar':
                 $controller->guardar();
+                break;
+        }
+        break;
+    
+    case 'proyecto':
+        require_once 'controller/ProyectoController.php';
+        $controller = new ProyectoController();
+        switch ($accion) {
+            case 'listar':
+                $controller->cargar();
+                break;
+            case 'guardar':
+                $controller->guardar();
+                break;
+            case 'modificar':
+                $controller->modificar();
                 break;
         }
         break;

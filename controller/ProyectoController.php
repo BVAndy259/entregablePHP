@@ -24,7 +24,7 @@
                 $model->guardar($proyecto);
                 header('Location: index.php');
             } else {
-                require_once __DIR__ . '/../view/view/viewGuardarProyecto.php';
+                require_once __DIR__ . '/../view/viewGuardarProyecto.php';
             }
         }
 
@@ -38,7 +38,7 @@
                 $proyecto->setNombre($_POST['txtNom']);
                 $proyecto->setDescripcion($_POST['txtDes']);
                 $proyecto->setEstado($_POST['txtEst']);
-                $proyecto->setIdcliente($_POST['txtTel']);
+                $proyecto->setIdcliente($_POST['txtIdCli']);
                 $model->modificar($proyecto);
                 header('Location: index.php');
             } else {

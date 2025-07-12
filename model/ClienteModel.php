@@ -43,7 +43,7 @@
 
         public function modificar(Cliente $cliente)
         {
-            $sql = "UPDATE clientes SET nomCliente = :nom, ruc = :ruc, email = :ema, telefono = :tel, ruc = :ruc, representante = :rep WHERE idCliente = :id";
+            $sql = "UPDATE clientes SET nomCliente = :nom, ruc = :ruc, email = :ema, telefono = :tel, representante = :rep WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
             $ps->bindParam(':nom', $cliente->getNombre());
             $ps->bindParam(':ruc', $cliente->getRuc());

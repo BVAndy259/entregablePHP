@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <h1>Tablas de Mantenimiento</h1>
-        <a href="index.php?accion=cargarClientes.php"><li>Clientes</li></a>
-        <a href="index.php?accion=cargarProyectos.php"><li>Proyectos</li></a>
+        <li><a href="index.php?modulo=cliente&accion=listar">Clientes</a></li>
+        <li><a href="index.php?modulo=proyecto&accion=listar">Proyectos</a></li>
     </ul>
 </nav>

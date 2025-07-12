@@ -22,7 +22,7 @@
                 $model->guardar($cliente);
                 header('Location: index.php');
             } else {
-                require_once __DIR__ . '/../view/view/viewGuardarCliente.php';
+                require_once __DIR__ . '/../view/viewGuardarCliente.php';
             }
         }
 
