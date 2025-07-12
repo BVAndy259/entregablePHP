@@ -5,6 +5,10 @@
     class ClienteModel {
         private $db;
 
+        public function __construct() {
+            $this->db = DB::conectar();
+        }
+
         public function cargar() 
         {
             $sql = "SELECT idCliente, nomCliente, ruc, email, telefono, representante FROM clientes";

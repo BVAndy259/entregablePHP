@@ -1,13 +1,17 @@
 <?php
     require_once __DIR__ . '/../config/DB.php';
-    require_once __DIR__ . '/Proyecto.php';
+    require_once __DIR__ . '/../model/ClienteModel.php';
 
     class ProyectoModel {
         private $db;
 
+        public function __construct() {
+            $this->db = DB::conectar();
+        }
+
         public function cargar() 
         {
-            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM clientes";
+            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos";
             $ps = $this->db->prepare($sql);
             $ps->execute();
             $filas = $ps->fetchall();
@@ -31,7 +35,7 @@
             $ps->bindParam(':nom', $proyecto->getNombre());
             $ps->bindParam(':des', $proyecto->getDescripcion());
             $ps->bindParam(':est', $proyecto->getEstado());
-            $ps->bindParam(':idfam', $proyecto->getIdcliente());
+            $ps->bindParam(':idcli', $proyecto->getIdcliente());
             $ps->execute();
         }
 

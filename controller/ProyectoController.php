@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/../model/ProyectoModel.php';
-    require_once __DIR__ . '/../model/ClienteModel.php'
+    require_once __DIR__ . '/../model/ClienteModel.php';
 
     class ProyectoController {
         public function cargar()
