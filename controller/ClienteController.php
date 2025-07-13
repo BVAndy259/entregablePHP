@@ -18,7 +18,7 @@
                 $cliente->setTelefono($_POST['txtTel']);
                 $cliente->setRepresentante($_POST['txtRep']);
                 $model->guardar($cliente);
-                header('Location: indexCliente.php');
+                header('Location: indexClientes.php');
                 exit();
             } else {
                 require_once __DIR__ . '/../view/Clientes/guardarCliente.php';
@@ -36,7 +36,7 @@
                 $cliente->setTelefono($_POST['txtTel']);
                 $cliente->setRepresentante($_POST['txtRep']);
                 $model->modificar($cliente);
-                header('Location: indexCliente.php');
+                header('Location: indexClientes.php');
                 exit();
             } else {
                 $model = new ClienteModel();
@@ -52,7 +52,7 @@
             if(isset($_GET['id'])){
                 $model = new ClienteModel();
                 $model->eliminar($_GET['id']);
-                header('Location: indexCliente.php');
+                header('Location: indexClientes.php');
                 exit();
             }
         }
