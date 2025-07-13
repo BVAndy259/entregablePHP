@@ -32,23 +32,5 @@
                 exit();
             }
         }
-
-        public function guardar() 
-        {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $usuario = new Usuario();
-                $usuario->setNomUsuario($_POST['txtNom']);
-                $usuario->setEmail($_POST['txtDes']); // <-- ¿Debería ser txtEmail?
-                $usuario->setPassword($_POST['txtPass']);
-                $usuario->setRol($_POST['txtRol']);
-                $model = new UsuarioModel();
-                $model->guardar($usuario);
-
-                header('Location: index.php');
-                exit();
-            } else {
-                require_once __DIR__ . '/../view/viewGuardarFamilia.php'; // Cambiar si no aplica
-            }
-        }
     }
 ?>

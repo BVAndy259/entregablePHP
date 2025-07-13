@@ -10,9 +10,6 @@
         case 'validar':
             $controller->validar();
             break;
-        case 'guardar':
-            $controller->guardar();
-            break;
         case 'formulario':
         default:
             require_once __DIR__ . '/view/login.php';
