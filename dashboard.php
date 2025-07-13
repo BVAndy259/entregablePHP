@@ -14,17 +14,46 @@ $rol = $_SESSION['rol'];
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Dashboard - TecnoSoluciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Bienvenido, <?= htmlspecialchars($nombre) ?> </h1>
+<body class="bg-light">
 
-    <h2>Menú Principal</h2>
-    <ul>
-        <li><a href="indexClientes.php">Mantenimiento de Clientes</a></li>
-        <li><a href="indexProyectos.php">Mantenimiento de Proyectos</a></li>
-        <li><a href="indexReportes.php">Ver Reportes</a></li>
-        <li><a href="logout.php">Cerrar Sesión</a></li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tecnosoluciones</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <span class="navbar-text text-white me-3">
+                    Bienvenido, <?= htmlspecialchars($nombre) ?> (<?= htmlspecialchars($rol) ?>)
+                </span>
+                <a href="logout.php" class="btn btn-outline-light btn-sm">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h2>Menú Principal</h2>
+            <p class="text-muted">Seleccione una opción para comenzar</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="list-group shadow rounded">
+                    <a href="indexClientes.php" class="list-group-item list-group-item-action">
+                        🧾 Mantenimiento de Clientes
+                    </a>
+                    <a href="indexProyectos.php" class="list-group-item list-group-item-action">
+                        🏗️ Mantenimiento de Proyectos
+                    </a>
+                    <a href="indexReportes.php" class="list-group-item list-group-item-action">
+                        📊 Ver Reportes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
+
