@@ -6,29 +6,29 @@
     <title>Modificar Proyecto</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div>
+        <div>
+            <div>
                 <h2>Modificar Proyecto</h2>
                 
                 <?php if($proyecto): ?>
                     <form method="POST" action="indexProyectos.php?action=modificar">
                         <input type="hidden" name="txtId" value="<?php echo $proyecto->getIdproyecto(); ?>">
                         
-                        <div class="mb-3">
-                            <label for="txtNom" class="form-label">Nombre del Proyecto</label>
-                            <input type="text" class="form-control" id="txtNom" name="txtNom" 
+                        <div>
+                            <label for="txtNom">Nombre del Proyecto</label>
+                            <input type="text" id="txtNom" name="txtNom" 
                                    value="<?php echo htmlspecialchars($proyecto->getNombre()); ?>" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="txtDes" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="txtDes" name="txtDes" rows="4" required><?php echo htmlspecialchars($proyecto->getDescripcion()); ?></textarea>
+                        <div>
+                            <label for="txtDes">Descripción</label>
+                            <textarea id="txtDes" name="txtDes" required><?php echo htmlspecialchars($proyecto->getDescripcion()); ?></textarea>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="txtEst" class="form-label">Estado</label>
-                            <select class="form-select" id="txtEst" name="txtEst" required>
+                        <div>
+                            <label for="txtEst">Estado</label>
+                            <select id="txtEst" name="txtEst" required>
                                 <option value="">Seleccione un estado</option>
                                 <option value="Pendiente" <?php echo ($proyecto->getEstado() == 'Pendiente') ? 'selected' : ''; ?>>Pendiente</option>
                                 <option value="En progreso" <?php echo ($proyecto->getEstado() == 'En progreso') ? 'selected' : ''; ?>>En progreso</option>
@@ -36,9 +36,9 @@
                             </select>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="txtIdCli" class="form-label">Cliente</label>
-                            <select class="form-select" id="txtIdCli" name="txtIdCli" required>
+                        <div>
+                            <label for="txtIdCli">Cliente</label>
+                            <select id="txtIdCli" name="txtIdCli" required>
                                 <option value="">Seleccione un cliente</option>
                                 <?php if(!empty($clientes)): ?>
                                     <?php foreach($clientes as $cliente): ?>
@@ -51,15 +51,15 @@
                             </select>
                         </div>
                         
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-success">Actualizar Proyecto</button>
-                            <a href="indexProyectos.php" class="btn btn-secondary">Cancelar</a>
+                        <div>
+                            <button type="submit">Actualizar Proyecto</button>
+                            <a href="indexProyectos.php">Cancelar</a>
                         </div>
                     </form>
                 <?php else: ?>
-                    <div class="alert alert-warning">
+                    <div>
                         Proyecto no encontrado.
-                        <a href="indexProyectos.php" class="btn btn-primary">Volver a la lista</a>
+                        <a href="indexProyectos.php">Volver a la lista</a>
                     </div>
                 <?php endif; ?>
             </div>

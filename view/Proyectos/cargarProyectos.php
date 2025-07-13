@@ -6,17 +6,17 @@
     <title>Lista de Proyectos</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
+    <div>
+        <div>
+            <div>
                 <h2>Lista de Proyectos</h2>
                 <div class="mb-3">
-                    <a href="indexProyectos.php?action=guardar" class="btn btn-primary">Nuevo Proyecto</a>
-                    <a href="indexClientes.php" class="btn btn-secondary">Ver Clientes</a>
+                    <a href="indexProyectos.php?action=guardar">Nuevo Proyecto</a>
+                    <a href="indexClientes.php">Ver Clientes</a>
                 </div>
                 
-                <table border="1" class="table table-striped table-bordered">
-                    <thead class="table-dark">
+                <table border="1">
+                    <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
@@ -52,7 +52,7 @@
                                                 break;
                                         }
                                         ?>
-                                        <span class="badge <?php echo $badgeClass; ?>"><?php echo htmlspecialchars($estado); ?></span>
+                                        <span <?php echo $badgeClass; ?>"><?php echo htmlspecialchars($estado); ?></span>
                                     </td>
                                     <td><?php echo htmlspecialchars($proyecto->getNombreCliente() ?? 'Sin asignar'); ?></td>
                                     <td>
@@ -66,7 +66,7 @@
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="6" class="text-center">No hay proyectos registrados</td>
+                                <td>No hay proyectos registrados</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>

@@ -43,7 +43,6 @@ if ($tipo === 'proyecto' && $proyectoId) {
 <body>
     <h1>Sistema de Reportes</h1>
 
-    <!-- Paso 1: Elegir tipo de reporte -->
     <?php if (!$tipo): ?>
         <form method="GET" action="indexReportes.php" class="no-print">
             <button type="submit" name="tipo" value="cliente">Ver reporte por Cliente</button>
@@ -51,7 +50,6 @@ if ($tipo === 'proyecto' && $proyectoId) {
         </form>
     <?php endif; ?>
 
-    <!-- Paso 2: Elegir cliente -->
     <?php if ($tipo === 'cliente' && !$clienteId): ?>
         <form method="GET" action="indexReportes.php" class="no-print">
             <input type="hidden" name="tipo" value="cliente">
@@ -68,13 +66,12 @@ if ($tipo === 'proyecto' && $proyectoId) {
         </form>
     <?php endif; ?>
 
-    <!-- Paso 2: Elegir proyecto -->
     <?php if ($tipo === 'proyecto' && !$proyectoId): ?>
         <form method="GET" action="indexReportes.php" class="no-print">
             <input type="hidden" name="tipo" value="proyecto">
             <label>Seleccione un Proyecto:</label>
             <select name="proyecto_id" required>
-                <option value="">-- Seleccionar --</option>
+                <option value="">Seleccionar</option>
                 <?php foreach ($proyectos as $proyecto): ?>
                     <option value="<?= $proyecto->getIdproyecto(); ?>">
                         <?= htmlspecialchars($proyecto->getNombre()); ?>
@@ -106,10 +103,9 @@ if ($tipo === 'proyecto' && $proyectoId) {
             <p>Este cliente no tiene proyectos.</p>
         <?php endif; ?>
 
-        <button onclick="window.print();" class="no-print">🖨️ Imprimir o Guardar como PDF</button>
+        <button onclick="window.print();" class="no-print">Imprimir o Guardar como PDF</button>
     <?php endif; ?>
 
-    <!-- Paso 3: Mostrar reporte de proyecto -->
     <?php if ($proyectoSeleccionado): ?>
         <h2>Reporte de Proyecto</h2>
         <p><strong>ID:</strong> <?= $proyectoSeleccionado->getIdproyecto(); ?></p>
@@ -128,7 +124,7 @@ if ($tipo === 'proyecto' && $proyectoId) {
             <p>Este proyecto no tiene cliente asignado.</p>
         <?php endif; ?>
 
-        <button onclick="window.print();" class="no-print">🖨️ Imprimir o Guardar como PDF</button>
+        <button onclick="window.print();" class="no-print">Imprimir o Guardar como PDF</button>
     <?php endif; ?>
 </body>
 </html>

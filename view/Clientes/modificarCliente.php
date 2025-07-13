@@ -30,27 +30,27 @@
                             <input type="email" id="txtEmail" name="txtEmail" value="<?php echo htmlspecialchars($cliente->getEmail()); ?>" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="txtTel" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="txtTel" name="txtTel" 
+                        <div>
+                            <label for="txtTel">Teléfono</label>
+                            <input type="text" id="txtTel" name="txtTel" 
                                    value="<?php echo htmlspecialchars($cliente->getTelefono()); ?>" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="txtRep" class="form-label">Representante</label>
-                            <input type="text" class="form-control" id="txtRep" name="txtRep" 
+                        <div>
+                            <label for="txtRep">Representante</label>
+                            <input type="text" id="txtRep" name="txtRep" 
                                    value="<?php echo htmlspecialchars($cliente->getRepresentante()); ?>" required>
                         </div>
                         
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-success">Actualizar Cliente</button>
-                            <a href="indexClientes.php" class="btn btn-secondary">Cancelar</a>
+                        <div>
+                            <button type="submit">Actualizar Cliente</button>
+                            <a href="indexClientes.php">Cancelar</a>
                         </div>
                     </form>
                 <?php else: ?>
-                    <div class="alert alert-warning">
+                    <div>
                         Cliente no encontrado.
-                        <a href="indexClientes.php" class="btn btn-primary">Volver a la lista</a>
+                        <a href="indexClientes.php">Volver a la lista</a>
                     </div>
                 <?php endif; ?>
             </div>
