@@ -20,8 +20,7 @@
                 $model->guardar($cliente);
                 header('Location: indexCliente.php');
                 exit();
-            }
-            else{
+            } else {
                 require_once __DIR__ . '/../view/Clientes/guardarCliente.php';
             }
         }
@@ -39,8 +38,7 @@
                 $model->modificar($cliente);
                 header('Location: indexCliente.php');
                 exit();
-            }
-            else{
+            } else {
                 $model = new ClienteModel();
                 $cliente = null;
                 if(isset($_GET['id'])){

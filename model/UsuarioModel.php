@@ -37,7 +37,7 @@ class UsuarioModel {
         $ps = $this->db->prepare($sql);
         $ps->bindParam(':nom', $usuario->getNomUsuario());
         $ps->bindParam(':email', $usuario->getEmail());
-        $ps->bindParam(':pas', $usuario->getPassword()); // Texto plano
+        $ps->bindParam(':pas', $usuario->getPassword());
         $ps->bindParam(':rol', $usuario->getRol());
         $ps->execute();
     }

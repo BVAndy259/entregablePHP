@@ -1,33 +1,30 @@
 <?php
-require_once __DIR__ . '/model/ClienteModel.php';
-require_once __DIR__ . '/model/ProyectoModel.php';
+    require_once __DIR__ . '/model/ClienteModel.php';
+    require_once __DIR__ . '/model/ProyectoModel.php';
 
-$clienteModel = new ClienteModel();
-$proyectoModel = new ProyectoModel();
+    $clienteModel = new ClienteModel();
+    $proyectoModel = new ProyectoModel();
+    $clientes = $clienteModel->cargar();
+    $proyectos = $proyectoModel->cargar();
+    $clienteSeleccionado = null;
+    $proyectosCliente = [];
+    $proyectoSeleccionado = null;
+    $clienteDelProyecto = null;
+    $tipo = $_GET['tipo'] ?? null;
+    $clienteId = $_GET['cliente_id'] ?? null;
+    $proyectoId = $_GET['proyecto_id'] ?? null;
 
-$clientes = $clienteModel->cargar();
-$proyectos = $proyectoModel->cargar();
-
-$clienteSeleccionado = null;
-$proyectosCliente = [];
-$proyectoSeleccionado = null;
-$clienteDelProyecto = null;
-
-$tipo = $_GET['tipo'] ?? null;
-$clienteId = $_GET['cliente_id'] ?? null;
-$proyectoId = $_GET['proyecto_id'] ?? null;
-
-if ($tipo === 'cliente' && $clienteId) {
-    $clienteSeleccionado = $clienteModel->obtenerPorId($clienteId);
-    $proyectosCliente = $proyectoModel->obtenerPorCliente($clienteId);
-}
-
-if ($tipo === 'proyecto' && $proyectoId) {
-    $proyectoSeleccionado = $proyectoModel->obtenerPorId($proyectoId);
-    if ($proyectoSeleccionado && $proyectoSeleccionado->getIdcliente()) {
-        $clienteDelProyecto = $clienteModel->obtenerPorId($proyectoSeleccionado->getIdcliente());
+    if ($tipo === 'cliente' && $clienteId) {
+        $clienteSeleccionado = $clienteModel->obtenerPorId($clienteId);
+        $proyectosCliente = $proyectoModel->obtenerPorCliente($clienteId);
     }
-}
+
+    if ($tipo === 'proyecto' && $proyectoId) {
+        $proyectoSeleccionado = $proyectoModel->obtenerPorId($proyectoId);
+        if ($proyectoSeleccionado && $proyectoSeleccionado->getIdcliente()) {
+            $clienteDelProyecto = $clienteModel->obtenerPorId($proyectoSeleccionado->getIdcliente());
+        }
+    }
 ?>
 
 <!DOCTYPE html>

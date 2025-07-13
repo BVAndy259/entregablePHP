@@ -12,8 +12,7 @@
         public function cargar() 
         {
             $sql = "SELECT p.idProyecto, p.nomProyecto, p.descripcion, p.estado, p.idCliente, c.nomCliente 
-                    FROM proyectos p 
-                    LEFT JOIN clientes c ON p.idCliente = c.idCliente";
+                    FROM proyectos p LEFT JOIN clientes c ON p.idCliente = c.idCliente";
             $ps = $this->db->prepare($sql);
             $ps->execute();
             $filas = $ps->fetchall();
@@ -82,12 +81,11 @@
             $ps->execute();
         }
 
-        // ✅ CORREGIDO: Agregado bindParam
-        public function obtenerPorCliente($idCliente) 
+        public function obtenerPorCliente($idcli) 
         {
-            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos WHERE idCliente = :idCliente";
+            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos WHERE idCliente = :idcli";
             $ps = $this->db->prepare($sql);
-            $ps->bindParam(':idCliente', $idCliente); // ← ESTO FALTABA
+            $ps->bindParam(':idcli', $idcli);
             $ps->execute();
             $filas = $ps->fetchall();
             $proyectos = array();

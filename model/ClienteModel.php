@@ -58,7 +58,7 @@
         {
             $sql = "SELECT idCliente, nomCliente, ruc, email, telefono, representante FROM clientes WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
-            $ps->bindParam(':id', $id); // ← ESTO FALTABA
+            $ps->bindParam(':id', $id);
             $ps->execute();
             $fila = $ps->fetch();
             

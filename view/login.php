@@ -16,14 +16,14 @@
                         <h5 class="text-center text-primary mb-4">Iniciar Sesión</h5>
 
                         <?php
-                        if (session_status() === PHP_SESSION_NONE) {
-                            session_start();
-                        }
+                            if (session_status() === PHP_SESSION_NONE) {
+                                session_start();
+                            }
 
-                        if (isset($_SESSION['error_login'])) {
-                            echo "<div class='alert alert-danger text-center'>" . $_SESSION['error_login'] . "</div>";
-                            unset($_SESSION['error_login']);
-                        }
+                            if (isset($_SESSION['error_login'])) {
+                                echo "<div class='alert alert-danger text-center'>" . $_SESSION['error_login'] . "</div>";
+                                unset($_SESSION['error_login']);
+                            }
                         ?>
 
                         <form method="POST" action="index.php?action=validar">

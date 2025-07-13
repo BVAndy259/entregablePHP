@@ -1,24 +1,21 @@
 <?php
-require_once __DIR__ . '/controller/UsuarioController.php';
+    require_once __DIR__ . '/controller/UsuarioController.php';
 
-session_start();
+    session_start();
 
-$action = $_GET['action'] ?? 'formulario';
+    $action = $_GET['action'] ?? 'formulario';
+    $controller = new UsuarioController();
 
-$controller = new UsuarioController();
-
-switch ($action) {
-    case 'validar':
-        $controller->validar();
-        break;
-
-    case 'guardar':
-        $controller->guardar();
-        break;
-
-    case 'formulario':
-    default:
-        require_once __DIR__ . '/view/login.php';
-        break;
-}
+    switch ($action) {
+        case 'validar':
+            $controller->validar();
+            break;
+        case 'guardar':
+            $controller->guardar();
+            break;
+        case 'formulario':
+        default:
+            require_once __DIR__ . '/view/login.php';
+            break;
+    }
 ?>

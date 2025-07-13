@@ -1,13 +1,13 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['idUsuario'])) {
-    header("Location: index.php");
-    exit();
-}
+    if (!isset($_SESSION['idUsuario'])) {
+        header("Location: index.php");
+        exit();
+    }
 
-$nombre = $_SESSION['nombre'];
-$rol = $_SESSION['rol'];
+    $nombre = $_SESSION['nombre'];
+    $rol = $_SESSION['rol'];
 ?>
 
 <!DOCTYPE html>

@@ -20,8 +20,7 @@
                 $model->guardar($proyecto);
                 header('Location: indexProyectos.php');
                 exit();
-            }
-            else{
+            } else {
                 $clienteModel = new ClienteModel();
                 $clientes = $clienteModel->cargar();
                 require_once __DIR__ . '/../view/Proyectos/guardarProyecto.php';
@@ -40,12 +39,10 @@
                 $model->modificar($proyecto);
                 header('Location: indexProyectos.php');
                 exit();
-            }
-            else{
+            } else {
                 $model = new ProyectoModel();
                 $proyecto = null;
                 $clientes = [];
-                
                 if(isset($_GET['id'])){
                     $proyecto = $model->obtenerPorId($_GET['id']);
                     $clienteModel = new ClienteModel();
