@@ -58,20 +58,21 @@
         {
             $sql = "SELECT idCliente, nomCliente, ruc, email, telefono, representante FROM clientes WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
+            $ps->bindParam(':id', $id); // ← ESTO FALTABA
             $ps->execute();
-            $filas = $ps->fetchall();
-            $clientes = array();
-            foreach ($filas as $f) {
+            $fila = $ps->fetch();
+            
+            if ($fila) {
                 $cli = new Cliente();
-                $cli->setIdcliente($f[0]);
-                $cli->setNombre($f[1]);
-                $cli->setRuc($f[2]);
-                $cli->setEmail($f[3]);
-                $cli->setTelefono($f[4]);
-                $cli->setRepresentante($f[5]);
-                array_push($clientes, $cli);
+                $cli->setIdcliente($fila[0]);
+                $cli->setNombre($fila[1]);
+                $cli->setRuc($fila[2]);
+                $cli->setEmail($fila[3]);
+                $cli->setTelefono($fila[4]);
+                $cli->setRepresentante($fila[5]);
+                return $cli;
             }
-            return $clientes;
+            return null;
         }
 
         public function eliminar($id)

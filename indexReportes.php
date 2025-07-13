@@ -40,6 +40,6 @@ if (isset($_GET['tipo']) && $_GET['tipo'] == 'proyecto' && !empty($_GET['proyect
     }
 }
 
-// Incluir la vista
-include __DIR__ . '/view/reportes.php';
+// ✅ CORREGIDO: Ruta correcta del archivo
+include __DIR__ . '/view/Reportes/reportes.php';
 ?>

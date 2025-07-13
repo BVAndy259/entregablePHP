@@ -82,10 +82,12 @@
             $ps->execute();
         }
 
+        // ✅ CORREGIDO: Agregado bindParam
         public function obtenerPorCliente($idCliente) 
         {
             $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos WHERE idCliente = :idCliente";
             $ps = $this->db->prepare($sql);
+            $ps->bindParam(':idCliente', $idCliente); // ← ESTO FALTABA
             $ps->execute();
             $filas = $ps->fetchall();
             $proyectos = array();
