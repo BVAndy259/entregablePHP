@@ -6,7 +6,7 @@
         private $db;
 
         public function __construct() {
-            $this->db = DB::conectar(); // Faltaba inicializar la conexión
+            $this->db = DB::conectar();
         }
 
         public function cargar() 
@@ -43,7 +43,6 @@
 
         public function modificar(Cliente $cliente)
         {
-            // Corregido: quitaste el ruc duplicado
             $sql = "UPDATE clientes SET nomCliente = :nom, ruc = :ruc, email = :ema, telefono = :tel, representante = :rep WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
             $ps->bindParam(':nom', $cliente->getNombre());
@@ -59,21 +58,20 @@
         {
             $sql = "SELECT idCliente, nomCliente, ruc, email, telefono, representante FROM clientes WHERE idCliente = :id";
             $ps = $this->db->prepare($sql);
-            $ps->bindParam(':id', $id);
             $ps->execute();
-            $fila = $ps->fetch();
-            
-            if ($fila) {
+            $filas = $ps->fetchall();
+            $clientes = array();
+            foreach ($filas as $f) {
                 $cli = new Cliente();
-                $cli->setIdcliente($fila[0]);
-                $cli->setNombre($fila[1]);
-                $cli->setRuc($fila[2]);
-                $cli->setEmail($fila[3]);
-                $cli->setTelefono($fila[4]);
-                $cli->setRepresentante($fila[5]);
-                return $cli;
+                $cli->setIdcliente($f[0]);
+                $cli->setNombre($f[1]);
+                $cli->setRuc($f[2]);
+                $cli->setEmail($f[3]);
+                $cli->setTelefono($f[4]);
+                $cli->setRepresentante($f[5]);
+                array_push($clientes, $cli);
             }
-            return null;
+            return $clientes;
         }
 
         public function eliminar($id)

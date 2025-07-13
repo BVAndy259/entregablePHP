@@ -12,7 +12,7 @@
                 <h2>Lista de Proyectos</h2>
                 <div class="mb-3">
                     <a href="indexProyectos.php?action=guardar" class="btn btn-primary">Nuevo Proyecto</a>
-                    <a href="index.php" class="btn btn-secondary">Ver Clientes</a>
+                    <a href="indexClientes.php" class="btn btn-secondary">Ver Clientes</a>
                 </div>
                 
                 <table border="1" class="table table-striped table-bordered">

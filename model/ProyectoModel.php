@@ -81,5 +81,24 @@
             $ps->bindParam(':id', $id);
             $ps->execute();
         }
+
+        public function obtenerPorCliente($idCliente) 
+        {
+            $sql = "SELECT idProyecto, nomProyecto, descripcion, estado, idCliente FROM proyectos WHERE idCliente = :idCliente";
+            $ps = $this->db->prepare($sql);
+            $ps->execute();
+            $filas = $ps->fetchall();
+            $proyectos = array();
+            foreach ($filas as $f) {
+                $pro = new Proyecto();
+                $pro->setIdproyecto($f[0]);
+                $pro->setNombre($f[1]);
+                $pro->setDescripcion($f[2]);
+                $pro->setEstado($f[3]);
+                $pro->setIdcliente($f[4]);
+                array_push($proyectos, $pro);
+            }
+            return $proyectos;
+        }
     }
 ?>
